@@ -1,0 +1,32 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:space-around;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+
+} 
+.title{
+  display: flex;
+}
+.mb16{
+  margin-bottom: 16px;
+}
+.ml16{
+  margin-left:16px;
+}
+.mr16{
+  margin-right:16px;
+}
+.mb10{
+  margin-bottom:10px;
+}
+.mr10{
+  margin-right: 10px;
+}
+.ml10{
+  margin-left:10px;
+}

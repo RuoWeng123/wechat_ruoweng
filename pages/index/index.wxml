@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-spacing">
+        <view class="flex-wrp" style="flex-direction:row">
+          <view class="flex-item demo-text-1">
+            <navigator type='switchTab' url="/pages/security/security">
+              <button>安监</button>
+              几个小方icon
+            </navigator>
+          </view>
+          <view class="flex-item demo-text-2">
+            <navigator type='switchTab' url="/pages/security/security">
+              <button>人员</button>
+            </navigator>
+          </view>
+          <view class="flex-item demo-text-3">
+            <navigator type='switchTab' url="/pages/security/security">
+              <button>生产</button>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

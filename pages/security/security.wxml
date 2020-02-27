@@ -1,0 +1,19 @@
+<!--pages/security/security.wxml-->
+<view class="container">
+  <scroll-view>
+    <view class="title" style="align-item:center">
+      <view>
+        <text> 提供饼图</text>
+      </view>
+      <view>
+        <text>提供报警闪烁</text>
+      </view>
+      <view>
+        <text>提供全部安监数据，可以过滤和自动翻页</text>
+      </view>
+    </view>
+    <view class="chart-area">
+
+    </view>
+  </scroll-view>
+</view>
