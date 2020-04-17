@@ -1,17 +1,48 @@
 {
   "pages": [
+    "pages/production/production",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/security/security",
-    "pages/person/person",
-    "pages/yield/yield"
+    "pages/show_product/show_product",
+    "pages/address/address",
+    "pages/cart/cart",
+    "pages/mine/mine",
+    "pages/category/category",
+    "pages/news/news",
+    "pages/shop/shop",
+    "pages/history/history"
   ],
   "window": {
+    "backgroundColor": "#f2f2f2",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#353535",
-    "navigationBarTitleText": "title",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "华夏天信",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#BF8600",
+    "borderStyle": "black",
+    "backgroundColor": "#323232",
+    "list": [
+      {
+        "pagePath": "pages/production/production",
+        "iconPath": "images/ba.png",
+        "selectedIconPath": "images/ba_active.png",
+        "text": "生产"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "images/asset2.png",
+        "selectedIconPath": "images/asset2.png",
+        "text": "行业"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart_active.png",
+        "text": "商城"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }

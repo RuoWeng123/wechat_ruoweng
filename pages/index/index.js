@@ -1,71 +1,67 @@
-//index.js
-//获取应用实例
-const app = getApp()
-const str = "number"
+const product = require('../../utils/product.js')
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {nickName:"ruoweng"},
-    hasUserInfo: true,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    nodeRichText:{
-      type:"hr"
-    },
-    btnText: 0
+    items: [],
+    slides: [],
+    navs: [{icon: "../../images/asset.png",       name: "资产"},
+           {icon: "../../images/direct_sale.png", name: "直销"},
+           {icon: "../../images/our_select.png",  name: "甄选"},
+           {icon: "../../images/packing.png",     name: "包装"}],
+
+    popularity_products: [],
+    new_products: [],
+    hot_products: [],
+    promotions: []
   },
-  //事件处理函数
-  bindViewTap: function() {
+
+  bindShowProduct: function (e) {
     wx.navigateTo({
-      url: '../logs/logs'
-    }) 
+      url: `../show_product/show_product?id=${e.currentTarget.dataset.id}`
+    })
   },
-  onLoad: function () {
-    let appInstance = getApp()
-    console.log(appInstance)
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+
+  catchTapCategory: function (e) {
+    wx.navigateTo({
+      url: `../category/category?type=${e.currentTarget.dataset.type}`
+    })
+  },
+
+  onLoad: function() {
+    var that = this
+
+    product.getSlides(function(result) {
+      var data = getApp().store.sync(result.data)
+      that.setData({'slides': data})
+      wx.setStorage({
+        key:"indexSlides",
+        data:data
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+    })
+
+    wx.getNetworkType({
+      success: function(res) {
+        var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
+        if (networkType) {
+          product.getProducts(function(result) {
+            var data = getApp().store.sync(result.data)
+            that.setData({
+              items: data,
+              popularity_products: data.filter(product => product.flag === '最热'),
+              new_products:        data.filter(product => product.flag === '新品'),
+              hot_products:        data.filter(product => product.flag === '火爆'),
+            })
+            wx.setStorageSync('products', data)
           })
+        } else {
+           cache = wx.getStorageSync('products')
+           if (cache) {
+             that.setData({'items': cache})
+           } else {
+             that.setData({'items': []})
+           }
         }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-  add: function(){
-    let count = (Math.random() * 10).toFixed(2)
-    this.setData({
-      btnText: Number(this.data.btnText) + Number(count)
-    })
-  },
-  jumpTo: function(data){
-    wx.redirectTo({
-      url: 'pages/security',
+      }
     })
   }
 })
