@@ -7,10 +7,24 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: flex-start;
+  justify-content: stretch;
+	align-content: flex-start;
 }
 
 .flex-wrp {
   width: 25vw;
   height: 100px;
+	
+}
+.flex-item{
+	width: 100%;
+	height: 100%;
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.view-image{
+	width: 60px;
+	height: 60px;
 }
