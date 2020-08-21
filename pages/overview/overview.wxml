@@ -1,0 +1,28 @@
+<scroll-view class="pl16 pt10 pr16" scroll-y="true" height="100%">
+<view class="pr16">
+	<radio-group class="mb16" style="display: inline-block;" bindchange="radioChange">
+	<radio value='day' checked>日</radio>
+	<radio class="ml10" value='week'>周</radio>
+	</radio-group>
+	<button type='default' size="mini" class="pull-right" style="width:80px;right: 16px;" bindtap='addMessage'>订阅</button>
+</view>
+
+	<view class="chart-container">
+	
+		<ec-canvas
+			id="mychart-dom-bar"
+			canvas-id="mychart-bar"
+			ec="{{ barChartData }}"
+		>
+		</ec-canvas>
+	</view>
+	<view class="chart-container">
+	
+		<ec-canvas
+			id="mychart-dom-pie"
+			canvas-id="mychart-pie"
+			ec="{{ pieChartData }}"
+		>
+		</ec-canvas>
+	</view>
+</scroll-view>
