@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "矿山基本信息",
+  "navigationBarTitleText": "矿山概览",
 	"usingComponents": {
 		"ec-canvas": "../../ec-canvas/ec-canvas"
 	}
