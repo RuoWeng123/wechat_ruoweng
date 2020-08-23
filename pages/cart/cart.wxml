@@ -1,10 +1,10 @@
 <view class="container">
-	<view class="flex-wrp" wx:for="{{unitList}}">
-		<cover-view class="flex-item">
-			<cover-image class="view-image" src="{{item.path}}"></cover-image>
-			<text>{{item.label}}</text>
-		</cover-view>
-	</view>
+  <view class="flex-wrp" wx:for="{{unitList}}" wx:for-item="item" bindtap="jumpToTarget(item)">
+    <view class="flex-item">
+      <cover-image class="view-image" src="{{item.path}}"></cover-image>
+      <text>{{item.label}}</text>
+    </view>
+  </view>
 </view>
 <!-- <view wx:else bindtap="bindTapAddress">
   <button class="button" type='primary'>填写收货地址</button>

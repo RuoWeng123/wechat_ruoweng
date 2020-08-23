@@ -24,7 +24,8 @@ Page({
 	
 	},
 
-	bindTapAddress() {
+	jumpToTarget(target) {
+		console.log(...arguments)
 		wx.navigateTo({
 			url: '../qrcode/qrcode'
 		})
