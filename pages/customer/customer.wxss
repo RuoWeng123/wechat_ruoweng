@@ -1,3 +1,4 @@
+
 /* pages/customer/customer.wxss */
 .container{
   padding: 15px 14px 0px 14px;
@@ -10,14 +11,16 @@
   display:flex;
   flex-direction: row;
   align-items: flex-start;
-}
 
+}
 .filter-input{
   width: calc(100% - 32px)
 }
 .filter-icon{
-  width: 60px;
+  width: 30px;
+  height: 30px;
 }
+
 .customer-container{
   width: 100%;
   height: 100vh;
@@ -70,4 +73,10 @@
 .customer-tag{
   height:30px;
   line-height: 40px;
+}
+
+.modal-content{
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }

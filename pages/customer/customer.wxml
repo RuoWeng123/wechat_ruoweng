@@ -1,7 +1,7 @@
 <view class="container">
   <view class="filter-container">
-    <input class="weui-input filter-input" type="text" placeholder="输入关键字过滤"></input>
-    <icon class="icon-box-img" type="success" size="30"></icon>
+    <input class="weui-input filter-input" type="text" placeholder="输入关键字过滤" bindinput="bindChangeKeyword"></input>
+    <image class="filter-icon" src="../../images/filter.png" bindtap="bindShowFilterPage"></image>
   </view>
   <scroll-view class="customer-container">
     <view class="customer-item" wx:for="{{customerList}}"  wx:key="index">
@@ -23,4 +23,54 @@
       </view>
     </view>
   </scroll-view>
+  <modal modal="{{modal}}" bindsuccess='modalOperate' catchtouchmove="true">
+    <view class='modal-content'>
+
+      <view class="mb16">
+        <text class="mb10">企业标签</text>
+        <checkbox-group name="checkbox" bindchange="bindChangeCheckCompanyTag">
+          <label wx:for="{{companyTagList}}" class="ml16" style="width: 120px;">
+            <checkbox value="{{item}}" style="width: 170rpx;" class="mb5">{{item}}</checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+
+      <view class="mb16">
+        <text class="mb10">个人标签</text>
+        <checkbox-group name="checkbox" bindchange="bindChangeCheckCustomerTag">
+          <label wx:for="{{customerTagList}}" class="ml16 mb10">
+            <checkbox value="{{item}}" style="width: 170rpx;" class="mb5">{{item}}</checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+
+      <view class="mb16">
+        <text class="mb10">性别</text>
+        <checkbox-group name="checkbox" bindchange="bindChangeCheckSexTag">
+          <label wx:for="{{sexTagList}}" class="ml16">
+            <checkbox value="{{item}}" style="width: 120rpx;" class="mb5">{{item}}</checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+
+      <view class="mb16">
+        <text class="mb10">状态</text>
+        <checkbox-group name="checkbox" bindchange="bindChangeCheckStatusTag">
+          <label wx:for="{{statusTagList}}" class="ml16">
+            <checkbox value="{{item}}" style="width: 170rpx;" class="mb5">{{item}}</checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+      
+      <view class="mb10">
+        <text class="mb10">客户生日</text>
+        <checkbox-group name="checkbox" bindchange="bindChangeCheckBorthdayTag">
+          <label wx:for="{{borthdayTagList}}" class="ml16">
+            <checkbox value="{{item}}" style="width: 130rpx;" class="mb5">{{item}}</checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+
+    </view>
+  </modal>
 </view>
