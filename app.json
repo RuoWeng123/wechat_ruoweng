@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/cart/cart",
+    "pages/customer/customer",
     "pages/overview/overview",
+    "pages/cart/cart",
     "pages/address/address",
-    "pages/category/category",
-    "pages/customer/customer"
+    "pages/category/category"
   ],
   "window": {
     "backgroundColor": "#f2f2f2",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "华夏天信",
+    "navigationBarTitleText": "好客跟进",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -23,13 +23,13 @@
         "pagePath": "pages/overview/overview",
         "iconPath": "images/ba.png",
         "selectedIconPath": "images/ba_active.png",
-        "text": "生产"
+        "text": "统计"
       },
       {
         "pagePath": "pages/customer/customer",
         "iconPath": "images/asset2.png",
         "selectedIconPath": "images/asset2.png",
-        "text": "行业"
+        "text": "客户"
       },
       {
         "pagePath": "pages/cart/cart",

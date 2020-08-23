@@ -12,10 +12,10 @@ function initChart(canvas, width, height, dpr) {
 
 	var option = {
 		title: {
-			show: true,
-			text: '生产信息'
+			show: false,
+			text: '7日新增'
 		},
-		color: ['#37a2da', '#32c5e9', '#67e0e3'],
+		color: ['#37a2da'],
 		tooltip: {
 			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -24,7 +24,7 @@ function initChart(canvas, width, height, dpr) {
 			confine: true
 		},
 		legend: {
-			data: ['计划', '实际', '差量']
+			show: false
 		},
 		grid: {
 			left: 1,
@@ -34,7 +34,8 @@ function initChart(canvas, width, height, dpr) {
 			containLabel: true
 		},
 		xAxis: [{
-			type: 'value',
+			type: 'category',
+      data: ['08/10', '08/11', '08/12', '08/13', '08/14', '08/15', '08/16'],
 			axisLine: {
 				lineStyle: {
 					color: '#999'
@@ -45,72 +46,26 @@ function initChart(canvas, width, height, dpr) {
 			}
 		}],
 		yAxis: [{
-			type: 'category',
+			type: 'value',
 			axisTick: {
 				show: false
-			},
-			data: ['原煤', '精煤', '销量', '进尺'],
-			axisLine: {
-				lineStyle: {
-					color: '#999'
-				}
-			},
-			axisLabel: {
-				color: '#666'
 			}
 		}],
 		series: [{
-			name: '计划',
-			type: 'bar',
+			name: '人数',
+			type: 'line',
+      smooth: true,
 			label: {
 				normal: {
-					show: true,
+					show: false,
 					position: 'inside'
 				}
 			},
-			data: [300, 270, 340, 344],
+			data: [10, 40, 34, 44, 55, 20, 40],
 			itemStyle: {
 				// emphasis: {
 				//   color: '#37a2da'
 				// }
-			}
-		},
-		{
-			name: '实际',
-			type: 'bar',
-			stack: '总量',
-			label: {
-				normal: {
-					show: true
-				}
-			},
-			data: [120, 302, 141, 174],
-			itemStyle: {
-				// emphasis: {
-				//   color: '#32c5e9'
-				// }
-			}
-		},
-		{
-			name: '差量',
-			type: 'bar',
-			stack: '总量',
-			label: {
-				normal: {
-					show: true,
-					position: 'left'
-				}
-			},
-			data: [20, -32, 21, 34],
-			itemStyle: {
-				color: function (data) {
-
-					const arg = [...arguments]
-					return arg[0].data < 0 ? '#B03A5B' : '#67e0e3'
-				},
-				emphasis: {
-					color: '#ffffff'
-				}
 			}
 		}
 		]
@@ -202,7 +157,12 @@ Page({
 		},
 		pieChartData: {
 			onInit: initPieChart
-		}
+		},
+    overviewList:[
+      {value: 30, label:"客户总数"},
+      {value: 30, label:"今日新增"},
+      {value: 30, label:"今日流失"}
+    ]
 	},
 
   /**

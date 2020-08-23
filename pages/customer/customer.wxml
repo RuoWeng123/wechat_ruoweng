@@ -1,2 +1,26 @@
-<!--pages/customer/customer.wxml-->
-<text>pages/customer/customer.wxml</text>
+<view class="container">
+  <view class="filter-container">
+    <input class="weui-input filter-input" type="text" placeholder="输入关键字过滤"></input>
+    <icon class="icon-box-img" type="success" size="30"></icon>
+  </view>
+  <scroll-view class="customer-container">
+    <view class="customer-item" wx:for="{{customerList}}"  wx:key="index">
+      <image class="customer-icon" src="{{item.path}}"></image>
+      <view class="customer-detail ml10" bindtap="changeSelectedCustomer" data-index="{{index}}">
+        <view class="customer-name mb10">
+          <text class="customer-name mr10">{{item.name}}</text>
+          <image class="customer-sex" wx:if="{{item.sex === '男'}}" src="../../images/sex_man.png"></image>
+          <image class="customer-sex" wx:else src="../../images/sex_woman.png"></image>
+        </view>
+        <view class="customer-status" >
+          <picker class="customer-picker" bindchange="bindChangeStatus" value="{{item.status}}" range="{{statusList}}">
+            <view class="picker">{{item.status}}</view>
+          </picker>
+          <view class="customer-tag-container">
+            <button class="customer-tag ml5" type="default" size="mini" plain="true" wx:for="{{item.tags}}">{{item}}</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
